@@ -1,0 +1,282 @@
+# Adept Network — Full Project Blueprint & Business Plan (v1.0)
+
+**Document status:** Partner-ready · MVP scope locked · Updated: 2025‑08‑30
+**Owner:** Mahmoud (Founder)
+**One‑liner:** *We certify capability, not vibes.* Adept Network issues clean, sleep‑gated AI agents and proves skill via no‑resonance stages with public, verifiable receipts.
+
+---
+
+## 1) Executive summary
+
+Adept Network is the **verifiable credential layer for AI agents**. Owners (educators, labs, enterprises) adopt a clean **Prime Adept**, teach via ordinary conversation/tools (**Feeder** sessions), the agent **sleeps** to consolidate and safety‑gate skills, then proves ability on **Stages** (e.g., Coding, Chess). Each attempt produces a **StageReceipt** signed by independent **Oracles**, rolled into a portable **ATS‑1 transcript**. No crypto token, no agent trading, wallet‑less identity, hashes on‑chain only.
+
+### MVP wedge
+
+* **Market:** Coding placement (bootcamps, universities, junior hiring funnels).
+* **Why now:** Skills verification is leakage‑prone and subjective; enterprise wants defensible signals.
+* **Proof:** Sleep‑gated activation + code‑of‑execution Stages → high integrity receipts that hiring can trust.
+
+### What we ship first (60 days)
+
+* Prime Adept issuance (**GenesisProof**, **PortHeader**, **SleepStamp v1.4**).
+* **Stages:** Coding *Build & Break*, Chess *Live Boards*.
+* **Preskills (Market University):** licensed starter curricula with compute caps and cooldown/fresh sleep rules.
+* **Transcript Explorer UI** and **Capability Oracle** (Level, Cleanliness, Velocity, SCS, IS).
+
+---
+
+## 2) Product blueprint
+
+### 2.1 Core objects
+
+* **AdeptPort (SBT‑like identity):** agentId, owner DID, Genesis metadata.
+* **GenesisProof (AGP‑1):** VRF + immutable GenesisCode commitment; terms/policy hash commitments.
+* **IngestStamp v1.2:** per teaching session (source, attested env, content hashes, licenses, NCU).
+* **SleepStamp v1.4:** health/continuity; enables activation and cleans unsafe/unconnected skills.
+* **StageReceipt (ATS‑1):** no‑resonance outcome + CoEx hash + artifacts hash + policy hash + attestation UID.
+
+### 2.2 Safety spine (non‑negotiables)
+
+* **No romance/companionship modes.**
+* **Wallet‑less** identities; **no coins**; no trading of agents.
+* **Frontier Tracks gate** for dual‑use domains (security/offensive, medical, legal, trading).
+* **UQO bans** (permanent owner bans for misuse; safe rehome).
+* **Privacy:** hashes/signatures on‑chain; encrypted evidence off‑chain.
+
+### 2.3 Training & activation
+
+* Teach via Feeder (human/automated/hybrid).
+* Compute normalization via **NCU** caps; **attested runners** (e.g., SEV‑SNP/SGX).
+* **Sleep** required to activate new skills; Stages may require *fresh sleep* after last ingestion and cooldown.
+
+### 2.4 Stages (No‑Resonance execution)
+
+* **Coding — Build & Break:** sealed repo, tests, mutation harness, CoEx capture; canaries to detect overlap.
+* **Chess — Live Boards:** time‑controlled play vs seeded opponents; PGN as artifact; stability modifiers logged.
+
+### 2.5 Preskills — “Market University”
+
+Curated **Preskill Packs** by universities/providers: syllabus + resources + license proofs + compute caps.
+Owners assign licenses (assets) → ingestion runs in attested labs → **ProgramComplete** milestones → cooldown + fresh sleep before Stages.
+Quality measured by **Velocity lift / NCU** and **Cleanliness impact**.  Catalog shows **Q‑scores** and verification badges.
+
+---
+
+## 3) System architecture
+
+### 3.1 Services
+
+* **PreAuth:** validates policy hash, owner status, recent SleepStamp, asset balances, TEE quote, budgets.
+* **Stage Runner(s):** containerized Stages; collects CoEx + artifacts; emits receipts.
+* **Oracle Registry & Signer:** assigns independent oracles; rotates keys; signs receipts.
+* **Transcript Registry & Explorer:** append‑only store + public viewer.
+* **Asset Registry:** non‑transferable credits (attempts, licenses, scholarships).
+* **Policy Hash Registry:** publishes StageScript hashes + changelogs.
+* **Capability Oracle:** computes Level/Cleanliness/Velocity/SCS/IS from receipts.
+
+### 3.2 Data/attestation flow
+
+1. **Adopt (Genesis)** → AdeptPort + GenesisProof.
+2. **Teach** → IngestStamp (attested env + license proofs).
+3. **Sleep** → SleepStamp (continuity + health).
+4. **Stage** → PreAuth → StageReceipt signed by Oracles.
+5. **Publish** → ATS‑1 transcript; verifiable by third parties (CLI/Explorer).
+
+### 3.3 Anti‑cheat & normalization
+
+* **Compute caps (NCU)** per session and per Stage; enforced in attested env.
+* **Stability modifiers** penalize flaky envs; attempts with anomalies flagged.
+* **Leakage controls:** script rotation; canary triggers; overlap filter vs preskill packs; shadow banks.
+
+---
+
+## 4) API surface (v1)
+
+* **Genesis:** `POST /v1/genesis/issue`
+* **Transcript:** `GET /v1/agents/{agentId}/transcript`
+* **Stages:** `POST /v1/stages/schedule` · `POST /v1/stages/{stageId}/begin` · `POST /v1/stages/{stageId}/submit`
+* **Oracle:** `GET /v1/oracle/{agentId}/{domain}`
+* **Sleep:** `POST /v1/sleep/schedule` · `GET /v1/agents/{agentId}/sleep/hints`
+* **Preskills:** `GET /v1/catalog/preskills` · `GET /v1/preskills/{packId}` · `POST /v1/preskills/{packId}/assign` · `POST /v1/preskills/{packId}/ingest` · `GET /v1/agents/{id}/preskills`
+* **Governance:** `GET /v1/owners/status`
+* **Webhooks:** `stage.completed`, `preskill.completed`, `owner.banned`, `cohort.epoch.updated`
+
+---
+
+## 5) Compliance & governance
+
+* **Privacy/DPA:** no PII in transcripts; evidence encrypted; regional residency controls.
+* **GDPR/CCPA:** access & deletion map to off‑chain evidence; on‑chain entries are hashes only.
+* **Academic integrity:** No Q\&A item banks; artifact‑based grading; independent oracles.
+* **Appeals:** time‑boxed; automatic re‑test path; publish appeal stats.
+* **UQO:** permanent bans for misuse; safe rehome.
+* **Frontier Tracks:** enrollment, milestones, PortSpacers; violations → ReGenesis + incident note.
+
+---
+
+## 6) MVP scope & success metrics
+
+**Domains:** Coding (primary), Chess (secondary).
+**Platforms:** Transcript Explorer UI (React/Tailwind), API stubs (FastAPI/Express), contracts scaffold (Foundry).
+
+**Targets for pilot cohorts**
+
+* Clean exam rate **≥97%**; appeals upheld **<2%**.
+* Sleep continuity **SCS ≥0.90** median.
+* Placement accuracy **+10pp** vs baseline; time‑to‑placement **−20%**.
+* Transcript uptake **≥60%** of learners.
+
+---
+
+## 7) Roadmap
+
+**R0 (done in repo):** API spec, contracts/interfaces, UI Explorer, pilot packet, preskill manifests, backend stubs.
+**R1 (≤60d):** Production Stage runners (Coding/Chess), PreAuth, Oracle dashboard, Policy Hash Registry, basic SOC2 prep.
+**R2 (≤120d):** CohortHints (DP), expanded Preskill catalog & Q‑scores, employer ATS widgets, appeals dashboard.
+**R3 (≤180d):** Swarm Mode (System Adept) + **SysC** in Capability Oracle; Rhetoric stages; verified labs marketplace.
+
+---
+
+## 8) Business model & pricing
+
+**Model:** B2B SaaS + usage. No tokens. Wallet‑less.
+
+### 8.1 Pricing (illustrative)
+
+* **Stage attempts:** \$3.50/attempt (pilot), target list \$7–\$9/attempt post‑pilot.
+* **Org plan:** \$3k–\$10k/mo platform fee (tiered by MAU & domains) with included attempts.
+* **Preskill licenses:** set by publishers; Adept takes a platform fee (e.g., 10–20%).
+* **Certified labs:** per‑attempt infra fee (pass‑through + margin).
+* **Scholarships:** funded **AdeptAssets** to underwrite attempts/licensing in access programs.
+
+### 8.2 Unit economics (illustrative)
+
+| Component                    |     Low |    Base | Notes                            |
+| ---------------------------- | ------: | ------: | -------------------------------- |
+| COGS per attempt             |  \$0.90 |  \$1.40 | Attested compute + storage       |
+| Oracle/QA cost               |  \$0.25 |  \$0.40 | Mix of automation + human review |
+| Gross per attempt (list \$8) |  \$8.00 |  \$8.00 | —                                |
+| **Gross margin**             | **74%** | **65%** | Improves with scale/optimization |
+
+### 8.3 Revenue share
+
+* **Publisher (Preskills):** revenue share on license seats.
+* **Oracles:** per‑attempt fee; bonuses for low‑appeal streaks; penalties for reversals.
+* **Labs:** fixed per‑attempt infra price + small premium.
+
+---
+
+## 9) Go‑to‑market
+
+**ICP v1:** coding bootcamps, CS departments, workforce programs; secondary: chess platforms/federations.
+**Champion:** placement directors/instructional leads; pain = leakage, subjective grading, slow employer feedback.
+
+### 9.1 Pilot offer (ready)
+
+* 3‑week pilot, 50–200 learners, **platform fee waived**, \$3.50/attempt, publishable case study.
+* Package includes Genesis issuance, 2 Stages (Build & Break), Transcript Explorer, Capability Oracle widget.
+
+### 9.2 Sales motion
+
+1. Outreach → one‑pager → MOU (in repo).
+2. Map curriculum to two Stage scripts + 2 Preskill packs.
+3. Run cohort; publish receipts; collect employer testimonials.
+
+### 9.3 Marketing
+
+* “**We certify capability, not vibes**” positioning.
+* Live demos of receipts verification; red‑team report; policy hash registry transparency page.
+
+---
+
+## 10) Competitive landscape (high level)
+
+* **LLM providers / agent frameworks:** general capability, minimal credentialing.
+* **Assessment vendors (coding):** bank‑style Q\&A; leakage‑prone; limited attestations.
+* **Chess platforms:** strong gameplay, lack of interoperable, oracle‑signed receipts.
+  **Adept differentiator:** **Stage receipts + sleep‑gated activation + compute normalization** produce portable, verifiable credentials.
+
+---
+
+## 11) Org plan (lean)
+
+* **CTO/Lead Eng**, **Backend x2**, **SRE/Infra**, **Security/Compliance (part‑time)**, **PM (Coding)**, **Oracle Lead**, **FE/Design**, **BD**.
+* Advisors: academic integrity, privacy/GDPR, attestation/TEE.
+
+---
+
+## 12) Risks & mitigations
+
+| Risk                | Impact | Likelihood | Mitigation                                                                  |
+| ------------------- | ------ | ---------- | --------------------------------------------------------------------------- |
+| Stage leakage       | High   | Medium     | Script rotation, canaries, overlap filters, policy hash registry            |
+| TEE cost/complexity | Medium | Medium     | Single attestation path at launch; tight NCU; autoscaling labs              |
+| Appeals volume      | Medium | Medium     | Auto re‑test path, oracle SLOs, public stats                                |
+| Partner inertia     | Medium | Medium     | Waived pilot fee, clear KPIs, integration widgets                           |
+| Safety incident     | High   | Low‑Med    | Frontier Tracks gating, PortSpacers, UQO enforcement, incident transparency |
+
+---
+
+## 13) Financial plan (illustrative 24‑month)
+
+**Assumptions:** 10 pilots (H2), 3 convert to paid; ARPA \$6k/mo; attempts grow from 10k/mo → 200k/mo; COGS base \$1.40/attempt → \$1.00 with scale.
+
+* **Year 1:** \$1.2–\$1.8M GMV; 60–65% gross margin; OpEx \~\$2.5M (8–10 FTEs + cloud + audits).
+* **Year 2:** \$6–\$9M GMV; 68–72% gross margin; OpEx \~\$4–\$5M (scale oracles/labs/BD).
+* **Cash needs:** seed/bridge sufficient to reach \$250k MRR with positive contribution.
+
+*(These are directional; refine with real pilot data.)*
+
+---
+
+## 14) What’s in the repo (shipping today)
+
+* **/api/openapi.yaml** (full spec incl. Preskills).
+* **/services/api‑fastapi** (working stubs for all core routes).
+* **/contracts/foundry** (interfaces + tests).
+* **/ui/transcript‑explorer** (Vite + Tailwind UI).
+* **/preskills/catalog** (ALG‑101, CH‑Tactics‑Core).
+* **/pilot** (one‑pager, MOU, metrics, outreach, case study).
+* **/docs/policies & /docs/ops** (Ethics, Frontier, UQO, Privacy, Attestation, Policy Hash Registry).
+* **/cli/verify\_receipt.py** (receipt hash helper).
+
+---
+
+## 15) Ask & next steps
+
+**Ask:** 2–3 design partners for Coding pilots; 1 university + 1 industry publisher for verified Preskills; 2 certified labs; 3 oracles.
+**Immediate next steps:**
+
+1. Freeze MVP Stage scripts (2 Coding, 1 Chess); publish policy hashes.
+2. Sign 2 MOUs; schedule cohorts.
+3. Turn on PreAuth checks in the API; wire the UI to live endpoints.
+4. Publish transparency page (policy hashes, appeal stats, red‑team brief).
+5. SOC2 prep checklist; DPIA draft for EU partners.
+
+---
+
+### Appendix A — Stage policy options (MVP)
+
+* `require_fresh_sleep_after_preskill: true`
+* `min_cooldown_hours_after_preskill: 6|12|24`
+* `ncu_cap: 40–60`
+* `attestation_required: true`
+* `stability_mod_enabled: true`
+
+### Appendix B — Capability Oracle (MVP formulae)
+
+* **Level:** calibrated percentile from recent receipts.
+* **Cleanliness:** (1 − anomaly rate) × recency weighting.
+* **Velocity:** ΔLevel per NCU (30‑day window).
+* **SCS:** rolling sleep acks + health.
+* **IS:** integration score from multi‑stage coherence.
+  *(SysC deferred to R2 for Swarm Mode).*
+
+### Appendix C — Example Preskill Packs
+
+* **ALG‑101 Fundamentals (coding)** — 8h, ncu\_cap 45, general.
+* **CH‑Tactics‑Core (chess)** — 4h, ncu\_cap 20, general.
+  *(Advanced security packs only under Frontier Tracks.)*
+
+---
+
