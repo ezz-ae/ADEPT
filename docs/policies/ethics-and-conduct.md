@@ -1,0 +1,5 @@
+- We certify ability; no companionship or romance.
+- Zero sexualization; age‑neutral language throughout.
+- Respect IP & licenses; every ingestion labeled; remove on valid request.
+- Dual‑use activation only via **Frontier Tracks** enrollment.
+- Appeals are welcome; harassment is not.

@@ -1,0 +1,5 @@
+- Foundry: see /contracts/foundry
+- OpenAPI: /api/openapi.yaml
+- UI: /ui/transcript-explorer (Vite + Tailwind)
+- Preskills: /preskills/catalog (YAML examples)
+- Policies & Ops: /docs/policies, /docs/ops

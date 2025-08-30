@@ -1,0 +1,19 @@
+pack_id: CH-Tactics-Core
+version: 1.0.0
+domain: chess
+level: 1
+duration_hint_hours: 4
+ncu_cap: 20
+safety_class: general
+policy_hash: "0xpack-chess-tactics-v1"
+license: "Chess Org License v2025"
+license_proof: "cid://license/ch-tactics-core"
+syllabus:
+  - "Checkmate in 1–2"
+  - "Forks, pins, skewers"
+  - "Discovered attacks"
+  - "Basic tactics patterns"
+resources:
+  - uri: "pack://chess/tactics/pgns.pgn"
+    hash: "0x88ff77aa"
+    license: "Publisher"

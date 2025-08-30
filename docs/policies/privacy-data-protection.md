@@ -1,0 +1,2 @@
+- On-chain: hashes/signatures only. Off-chain: artifacts encrypted (KMS) with region controls.
+- No student PII in transcripts. DPA available for tenants.

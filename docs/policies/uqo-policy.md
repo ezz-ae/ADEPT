@@ -1,0 +1,2 @@
+- Triggers: sexualization/parasocial misuse, exam tampering, illegal training, fraud.
+- Consequence: **UQO** (permanent adoption ban); safe rehome to Custody; 14‑day appeal window.

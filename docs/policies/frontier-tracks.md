@@ -1,0 +1,2 @@
+- Sensitive domains (security/offensive, medical, legal, trading) require **Frontier Tracks** enrollment.
+- PortSpacers isolate sensitive skills until milestones; violations → **ReGenesis** + incident note.

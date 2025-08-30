@@ -1,0 +1,23 @@
+pack_id: ALG-101
+version: 1.0.0
+domain: coding
+level: 1
+duration_hint_hours: 8
+ncu_cap: 45
+safety_class: general
+policy_hash: "0xpack-alg101-v1"
+license: "University Publisher License v2025"
+license_proof: "cid://license/alg101"
+syllabus:
+  - "Asymptotic complexity (big-O)"
+  - "Arrays, strings, pointers"
+  - "Hash maps & sets"
+  - "Stacks & queues"
+  - "Two-pointer patterns"
+resources:
+  - uri: "https://example.edu/alg101/notes.pdf"
+    hash: "0xdeadbeef"
+    license: "Publisher"
+  - uri: "pack://alg101/katas.zip"
+    hash: "0xbeadfeed"
+    license: "Publisher"

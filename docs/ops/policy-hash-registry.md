@@ -1,0 +1,3 @@
+- Publish policy hashes for each StageScript version with changelog.
+- Provide CLI verifier inputs: policyHash, coexHash, artifactHash.
+- Rotate scripts; maintain shadow overlap; deprecate old hashes.

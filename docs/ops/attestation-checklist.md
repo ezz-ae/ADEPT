@@ -1,0 +1,3 @@
+- Choose attestation path (SEV-SNP or SGX). Record imageDigest and capture teeQuote.
+- PreAuth must verify quotes and bind them to policyHash + stageId.
+- Include attestation UID in StageReceipt.attestationUid.
