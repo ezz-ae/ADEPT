@@ -1,4 +1,4 @@
-# Adept Network — Unified Repository (MVP)
+# Adept Network  (MVP)
 
 **Date:** 2025-08-30
 
@@ -35,7 +35,7 @@ npm run dev
 > The UI ships with local sample data. Wire it to your API when ready.
 
 ### 4) Pilot
-Use `pilot/` to contact partners and run a 3‑week coding pilot.
+ 3‑week coding pilot.
 
 ## Repo Layout
 ```
